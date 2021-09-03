@@ -1,11 +1,12 @@
 Function Get-ProofpointTenant{
+  [CmdletBinding()]
 Param(
     $Domain,
     $Tenant
 )
 
 
-if(!($Global:PPHeader)){
+if(!($PPHeader)){
 
     Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
     exit

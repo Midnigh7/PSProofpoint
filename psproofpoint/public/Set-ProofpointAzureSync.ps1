@@ -1,4 +1,5 @@
 Function Set-ProofpointAzureSync{
+  [CmdletBinding()]
 Param(
     [Parameter(Mandatory=$true)]
     [string]$Domain,
@@ -37,7 +38,7 @@ $Body = @"
 }
 "@
 
-if(!($Global:PPHeader)){
+if(!($PPHeader)){
 
   Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
   exit
