@@ -28,7 +28,7 @@ task SetVersion {
     $version = [version]"0.1.0"
     $publishedModule = $null
     $bumpVersionType = 'Patch'
-    $versionStamp = (git rev-parse origin/master) + (git rev-parse head)
+    $versionStamp = (git rev-parse origin/main) + (git rev-parse head)
 
     "Load current version"
     [version] $sourceVersion = (Get-Metadata -Path $manifestPath -PropertyName 'ModuleVersion')
