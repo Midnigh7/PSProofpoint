@@ -1,3 +1,4 @@
+Function Connect-Proofpoint{
 param(
         [ValidateSet ("us1","us2","us3","us4","us5","eu1")]$PPRegion,
         $Creds = (Get-Credential)
@@ -17,4 +18,5 @@ $Connect = Invoke-RestMethod -Headers $Global:PPheaders -Uri $PPURI/me -Method G
 }
 If ($Connect){
     Write-Host -ForegroundColor Green "Connected to $PPURI"
+}
 }

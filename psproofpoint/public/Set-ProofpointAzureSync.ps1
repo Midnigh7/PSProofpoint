@@ -1,3 +1,4 @@
+Function Set-ProofpointAzureSync{
 Param(
     [Parameter(Mandatory=$true)]
     [string]$Domain,
@@ -49,4 +50,6 @@ try{
 Invoke-RestMethod -Uri "$BaseURI/$Domain/settings/azure" -Headers $Headers -Method Put -Body $Body
 }Catch{
   Write-host "$_" -ForegroundColor Red
+}
+
 }

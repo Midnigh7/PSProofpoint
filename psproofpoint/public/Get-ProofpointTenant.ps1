@@ -1,3 +1,4 @@
+Function Get-ProofpointTenant{
 Param(
     $Domain,
     $Tenant
@@ -18,5 +19,5 @@ if(!($Global:PPHeader)){
     Write-host "$_" -ForegroundColor Red
   }
 
-
+}
 
