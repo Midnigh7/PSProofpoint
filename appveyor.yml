@@ -25,3 +25,10 @@ notifications:
     subject: 'Build {{status}}'                  # optional
     message: "{{message}}, {{commitId}}, ..."    # optional
     on_build_status_changed: true
+
+# Install NuGet to interact with the PowerShell Gallery
+install:
+- ps: |
+    Install-PackageProvider -Name NuGet -Force | Out-Null
+    Install-Module -Name Pester -Force
+    Install-Module -Name posh-git -Force
