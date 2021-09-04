@@ -25,7 +25,7 @@ function GetModulePublicInterfaceMap
 }
 
 task SetVersion {
-    $version = [version]"0.1.0"
+    $version = [version]"1.1.1"
     $publishedModule = $null
     $bumpVersionType = 'Patch'
     $versionStamp = (git rev-parse origin/main) + (git rev-parse head)
