@@ -1,7 +1,7 @@
 task PublishModule {
 
     if ( $ENV:BHBuildSystem -ne 'Unknown' -and
-        $ENV:BHBranchName -eq "master" -and
+        $ENV:BHBranchName -eq "main" -and
         -not [string]::IsNullOrWhiteSpace($ENV:nugetapikey))
     {
         $publishModuleSplat = @{

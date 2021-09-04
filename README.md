@@ -1,13 +1,9 @@
 # PSProofpoint
 
-
 <h4 align="center">
 
 This is a PowerShell wrapper for the [Proofpoint API](https://us3.proofpointessentials.com/api/v1/docs/index.php)
-
 </h4>
-
-
 <div align="center">
 
 [![Build status](https://ci.appveyor.com/api/projects/status/9995qkdit0dvqc7b?svg=true)](https://ci.appveyor.com/project/Midnigh7/psproofpoint)
