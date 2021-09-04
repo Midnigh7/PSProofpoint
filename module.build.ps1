@@ -13,3 +13,6 @@ task DevTest ImportDevModule, Pester
 Write-Verbose 'Import common tasks'
 Get-ChildItem -Path $buildroot\BuildTasks\*.Task.ps1 |
     ForEach-Object {Write-Verbose  $_.FullName;. $_.FullName}
+
+
+    
