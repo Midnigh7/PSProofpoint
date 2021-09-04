@@ -1,5 +1,4 @@
 # PSProofpoint
-
 <h4 align="center">
 
 This is a PowerShell wrapper for the [Proofpoint API](https://us3.proofpointessentials.com/api/v1/docs/index.php)
@@ -10,5 +9,4 @@ This is a PowerShell wrapper for the [Proofpoint API](https://us3.proofpointesse
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e62784a71b754ebf8cef179a1bf1e077)](https://www.codacy.com/gh/Midnigh7/PSProofpoint/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Midnigh7/PSProofpoint&amp;utm_campaign=Badge_Grade)
 
 </div>
-
 Proofpoint API Powershell wrapper
