@@ -97,7 +97,7 @@ Task Deploy -Depends Build {
     # Gate deployment
     if (
         $ENV:BHBuildSystem -ne 'Unknown' -and
-        $ENV:BHBranchName -eq "master" -and
+        $ENV:BHBranchName -eq "main" -and
         $ENV:BHCommitMessage -match '!deploy'
     )
     {
