@@ -16,7 +16,19 @@ build: false
 #Kick off the CI/CD pipeline
 test_script:
 - ps: . .\build.ps1
+- ps: Get-PSRepository
+- ps: Find-Module PSProofpoint
+- ps: (Get-Content .\PSProofpoint\PSProofpoint.psd1).replace('<BUILD_VERSION>', $env:APPVEYOR_BUILD_VERSION) | Set-Content .\PSProofpoint\PSProofpoint.psd1
+- ps: mkdir $env:userprofile\Documents\WindowsPowerShell\Modules\PSProofpoint
+- ps: Copy-Item .\PSProofpoint\* $env:userprofile\Documents\WindowsPowerShell\Modules\PSProofpoint\ -Recurse -Force
 - ps: Publish-Module -Name PSProofpoint -NuGetApiKey $env:psg_api_key
+- ps: Remove-Item $env:userprofile\Documents\WindowsPowerShell\Modules\PSProofpoint -Recurse -Force
+- ps: Write-Host "Wait for 30 seconds until the module is published"; Start-Sleep -s 30
+- ps: Find-Module PSProofpoint
+- ps: Install-Module PSProofpoint -Scope AllUsers
+- ps: Get-PackageProvider
+- ps: Get-Module
+- ps: dir $env:ProgramFiles\WindowsPowerShell\Modules\PSProofpoint\$env:APPVEYOR_BUILD_VERSION
 notifications:
 
   # Email
