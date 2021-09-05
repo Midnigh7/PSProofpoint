@@ -27,3 +27,4 @@ This module makes it easy to leverage PowerShell to automate tasks in Proofpoint
 ```
 Install-Module 'PSProofpoint'
 ```
+

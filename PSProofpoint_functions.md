@@ -14,3 +14,4 @@ This command gets tenants of the parent org.
 
 ### [Set-ProofpointAzureSync]
 This command sets the Azure User Sync Application settings.
+
