@@ -1,5 +1,5 @@
 environment:
-  NugetApiKey:
+  psg_api_key:
     secure: /lJyGquwMRUqVDnml40Oe0idMigX/55GQOR6aKqjjmAlnLrJUnViRdW/4Zp1u43X
 
 
