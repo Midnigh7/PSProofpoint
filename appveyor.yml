@@ -28,7 +28,8 @@ test_script:
 - ps: Install-Module PSProofpoint -Scope AllUsers
 - ps: Get-PackageProvider
 - ps: Get-Module
-- ps: dir $env:ProgramFiles\WindowsPowerShell\Modules\PSProofpoint\$env:APPVEYOR_BUILD_VERSION
+- ps: Write-Host "Wait for 30 seconds until the module is published"; Start-Sleep -s 30
+- ps: dir $env:ProgramFiles\WindowsPowerShell\Modules\PSProofpoint\
 notifications:
 
   # Email
