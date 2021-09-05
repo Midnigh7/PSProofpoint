@@ -4,7 +4,7 @@ environment:
 
 
 # Allow WMF5 (i.e. PowerShellGallery functionality)
-os: WMF 5
+os: WMF 5.1
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
@@ -16,6 +16,7 @@ build: false
 #Kick off the CI/CD pipeline
 test_script:
 - ps: . .\build.ps1
+#- ps: Publish-Module -Name PSProofpoint -NuGetApiKey $env:psg_api_key
 notifications:
 
   # Email
@@ -32,3 +33,4 @@ install:
     Install-PackageProvider -Name NuGet -Force | Out-Null
     Install-Module -Name Pester -Force
     Install-Module -Name posh-git -Force
+
