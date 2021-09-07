@@ -50,3 +50,6 @@ This command gets the Proofpoint Users for specified domain.
 
 ### [Set-ProofpointDomainVerification]
 This command Sets the Proofpoint Domain Verification settings.
+
+### [Set-ProofpointDomainDKIM]
+This command Sets the Proofpoint Domain DKIM settings.
