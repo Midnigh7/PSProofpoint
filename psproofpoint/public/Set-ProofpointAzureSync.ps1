@@ -48,7 +48,7 @@ if(!($PPheaders)){
 
 
 try{
-Invoke-RestMethod -Uri "$BaseURI/$Domain/settings/azure" -Headers $Headers -Method Put -Body $Body
+Invoke-RestMethod -Uri "$PPURI/$Domain/settings/azure" -Headers $Headers -Method Put -Body $Body
 }Catch{
   Write-Output "$_"
 }
