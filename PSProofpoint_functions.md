@@ -52,4 +52,4 @@ This command gets the Proofpoint Users for specified domain.
 This command Sets the Proofpoint Domain Verification settings.
 
 ### [Get-ProofpointDomainDKIM]
-This command Sets the Proofpoint Domain DKIM settings.
+This command Gets the Proofpoint Domain DKIM settings.
