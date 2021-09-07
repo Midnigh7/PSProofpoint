@@ -9,7 +9,7 @@ Function Get-ProofpointDKIM{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+    Write-Error "Not Connected to Proofpoint." 
       
     }
     try{
@@ -21,7 +21,7 @@ Function Get-ProofpointDKIM{
      
       Return $Domain
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }

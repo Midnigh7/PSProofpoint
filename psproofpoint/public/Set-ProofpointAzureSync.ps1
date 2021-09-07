@@ -40,7 +40,7 @@ $Body = @"
 
 if(!($PPheaders)){
 
-  Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+  Write-Error "Not Connected to Proofpoint." 
  
 }
 
@@ -50,7 +50,7 @@ if(!($PPheaders)){
 try{
 Invoke-RestMethod -Uri "$BaseURI/$Domain/settings/azure" -Headers $Headers -Method Put -Body $Body
 }Catch{
-  Write-host "$_" -ForegroundColor Red
+  Write-Output "$_"
 }
 
 }

@@ -2,13 +2,13 @@ Function Get-ProofpointProducts{
     [CmdletBinding()]
   Param(
     [Parameter(Mandatory=$true)]$Domain,
-    
+    $Product
   )
   
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+      Write-Error "Not Connected to Proofpoint."
       
     }
     try{
@@ -18,7 +18,7 @@ Function Get-ProofpointProducts{
      
       Return $Products
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_"
     }
   
   }

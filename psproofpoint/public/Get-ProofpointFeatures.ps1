@@ -7,7 +7,7 @@ Function Get-ProofpointFeatures{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+      Write-Error "Not Connected to Proofpoint."
       
     }
     try{
@@ -17,7 +17,7 @@ Function Get-ProofpointFeatures{
      
       Return $Features
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }

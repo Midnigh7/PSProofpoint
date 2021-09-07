@@ -2,24 +2,24 @@ Function Get-ProofpointBilling{
     [CmdletBinding()]
   Param(
     [Parameter(Mandatory=$true)]$Domain,
-      [switch]$Orgs
+      [switch]$Children
   )
   
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+      Write-Error "Not Connected to Proofpoint." -ForegroundColor Red
       
     }
     try{
 
         $URI = "$PPURI/billing/$Domain/"
-        if($Orgs){ $URI = $URI + "/orgs" }
+        if($Children){ $URI = $URI + "/orgs" }
 
-      $PPBilling = Invoke-RestMethod -Uri $URI -Headers $PPheaders
+      $Billing = Invoke-RestMethod -Uri $URI -Headers $PPheaders
 
       
-      Return $PPBilling
+      Return $Billing
     }Catch{
       Write-host "$_" -ForegroundColor Red
     }

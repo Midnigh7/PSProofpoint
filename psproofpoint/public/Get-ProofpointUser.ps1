@@ -8,7 +8,7 @@ Function Get-ProofpointUser{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+      Write-Error "Not Connected to Proofpoint."
       
     }
     try{
@@ -22,7 +22,7 @@ Function Get-ProofpointUser{
      
       Return $Users.users
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_"
     }
   
   }

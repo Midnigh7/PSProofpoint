@@ -6,7 +6,7 @@ task PublishModule {
     {
         $publishModuleSplat = @{
             Path        = $Destination
-            NuGetApiKey = $ENV:psg_api_key
+            NuGetApiKey = $ENV:nugetapikey
             Verbose     = $true
             Force       = $true
             Repository  = $PSRepository

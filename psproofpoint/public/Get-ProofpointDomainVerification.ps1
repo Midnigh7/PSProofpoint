@@ -8,7 +8,7 @@ Function Get-ProofpointDomainVerification{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+    Write-Error "Not Connected to Proofpoint." 
       
     }
     try{
@@ -16,7 +16,7 @@ Function Get-ProofpointDomainVerification{
      
       Return $DomainVerificationCode
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }

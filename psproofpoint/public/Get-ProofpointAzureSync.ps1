@@ -7,7 +7,7 @@ Function Get-ProofpointAzureSync{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+    Write-Error "Not Connected to Proofpoint." 
       
     }
     try{
@@ -15,7 +15,7 @@ Function Get-ProofpointAzureSync{
      
       Return $AzureStatus
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }

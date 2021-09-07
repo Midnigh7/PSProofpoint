@@ -10,7 +10,7 @@ Function Get-ProofpointReport{
   
   if(!($PPheaders)){
   
-      Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
+      Write-Error "Not Connected to Proofpoint." 
       
     }
     try{
@@ -20,7 +20,7 @@ Function Get-ProofpointReport{
      
       Return $Report
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }
