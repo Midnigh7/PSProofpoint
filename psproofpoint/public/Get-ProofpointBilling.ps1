@@ -21,7 +21,7 @@ Function Get-ProofpointBilling{
       
       Return $Billing
     }Catch{
-      Write-host "$_" -ForegroundColor Red
+      Write-Output "$_" 
     }
   
   }

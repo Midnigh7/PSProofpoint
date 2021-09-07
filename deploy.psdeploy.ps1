@@ -17,6 +17,6 @@ if($ENV:BHProjectName)
     "`t* You are committing to the master branch (Current [$($env:BHBranchName -eq "master")]: $ENV:BHBranchName) `n" +
     "`t* Your commit message includes !deploy (Current [$($env:BHCommitMessage -match '!deploy')]: $ENV:BHCommitMessage)" |
  #>
-    Write-Host
+    #Write-Host
 
     }

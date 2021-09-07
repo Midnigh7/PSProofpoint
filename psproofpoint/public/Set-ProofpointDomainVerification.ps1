@@ -1,5 +1,5 @@
 Function Set-ProofpointDomainVerification{
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
     [Parameter(Mandatory=$true)] $Domain,
     [Parameter(Mandatory=$true)]$TargetDomain,

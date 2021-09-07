@@ -1,5 +1,5 @@
 Function Set-ProofpointAzureSync{
-  [CmdletBinding()]
+  [CmdletBinding(SupportsShouldProcess = $true)]
 Param(
     [Parameter(Mandatory=$true)]
     [string]$Domain,
