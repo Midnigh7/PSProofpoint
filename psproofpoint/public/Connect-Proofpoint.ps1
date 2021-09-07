@@ -14,11 +14,11 @@ $Script:PPheaders.Add("X-User",($Credential).UserName)
 $Script:PPheaders.Add("X-Password",($Credential.GetNetworkCredential()).Password)
 $Script:PPURI = "https://$PPRegion.proofpointessentials.com/api/v1"
 try{
-$Connect = Invoke-RestMethod -Headers $Global:PPheaders -Uri $PPURI/me -Method Get
+$Connect = Invoke-RestMethod -Headers $Script:PPheaders -Uri $PPURI/me -Method Get
 }catch{
 
  Write-host "$_" -ForegroundColor Red
- Get-Variable | Where-Object {$_.name -like "PP*"} | Remove-Variable
+ Get-Variable | Where-Object {$_.name -like "PP*"} | Remove-Variable -ErrorAction Ignore
 }
 If ($Connect){
     Write-Host -ForegroundColor Green "Connected to $PPURI"

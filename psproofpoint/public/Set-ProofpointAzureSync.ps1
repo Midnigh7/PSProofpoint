@@ -38,10 +38,10 @@ $Body = @"
 }
 "@
 
-if(!($PPHeader)){
+if(!($PPheaders)){
 
   Write-Host "Not Connected to Proofpoint." -ForegroundColor Red
-  exit
+ 
 }
 
 
