@@ -9,7 +9,9 @@ Param(
     [switch]$DisableLogin,
     [ValidateSet ("silent_User","end_user")] $UserRole = "end_user",
     [int]$SyncHours = "1",
-    [ValidateSet ("Active Users", "Distribution Groups", "Security Groups")][array]$SyncObjects,
+    [switch]$SyncActiveUsers,
+    [switch]$SyncDistGroups,
+    [switch]$SyncSecGroups,
     [switch]$AddUsers,
     [switch]$UpdateUsers,
     [switch]$RemoveDeletedUsers,
@@ -25,9 +27,9 @@ $Body = @{
   disable_login= $(if($DisableLogin){"true"}else{"false"})
   default_user_role_name= "$($UserRole)"
   sync_frequency= $($SyncHours)
-  sync_active_users= $(if("Active Users" -in $SyncObjects){"true"}else{"false"})
-  sync_distribution_groups= $(if("Distribution Groups" -in $SyncObjects){"true"}else{"false"})
-  sync_security_groups= $(if("Security Groups" -in $SyncObjects){"true"}else{"false"})
+  sync_active_users= $(if($SyncActiveUsers){"true"}else{"false"})
+  sync_distribution_groups= $(if($SyncDistGroups){"true"}else{"false"})
+  sync_security_groups= $(if($SyncSecGroups){"true"}else{"false"})
   add_users= $(if($AddUsers){"true"}else{"false"})
   update_users= $(if($UpdateUsers){"true"}else{"false"})
   remove_deleted_users= $(if($RemoveDeletedUsers){"true"}else{"false"})
@@ -49,7 +51,7 @@ if(!($PPheaders)){
 
 
 try{
-Invoke-RestMethod -Uri "$PPURI/$Domain/settings/azure" -Headers $PPheaders -Method Put -Body $jsonBody -ContentType 'application/json'
+Invoke-RestMethod -Uri "$PPURI/orgs/$Domain/settings/azure" -Headers $PPheaders -Method Put -Body $jsonBody -ContentType 'application/json'
 }Catch{
   Write-Output "$_"
 }
