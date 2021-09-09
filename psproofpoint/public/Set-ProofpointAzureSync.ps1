@@ -18,25 +18,26 @@ Param(
     [switch]$RemoveDeletedGroups
 )
 
-$Body = @"
-{
-  "primary_domain": "$($Domain)",
-  "application_id": "$($azureAppId)",
-  "ad_key": "$($AppPW)",
-  "disable_login": $(if($DisableLogin){"true"}else{"false"}),
-  "default_user_role_name": "$($UserRole)",
-  "sync_frequency": $($SyncHours),
-  "sync_active_users": $(if("Active Users" -in $SyncObjects){"true"}else{"false"}),
-  "sync_distribution_groups": $(if("Distribution Groups" -in $SyncObjects){"true"}else{"false"}),
-  "sync_security_groups": $(if("Security Groups" -in $SyncObjects){"true"}else{"false"}),
-  "add_users": $(if($AddUsers){"true"}else{"false"}),
-  "update_users": $(if($UpdateUsers){"true"}else{"false"}),
-  "remove_deleted_users": $(if($RemoveDeletedUsers){"true"}else{"false"}),
-  "add_groups": $(if($AddGroups){"true"}else{"false"}),
-  "update_groups": $(if($UpdateGroups){"true"}else{"false"}),
-  "remove_deleted_groups": $(if($RemoveDeletedGroups){"true"}else{"false"})
+$Body = @{
+  primary_domain= "$($Domain)"
+  application_id= "$($azureAppId)"
+  ad_key= "$($AppPW)"
+  disable_login= $(if($DisableLogin){"true"}else{"false"})
+  default_user_role_name= "$($UserRole)"
+  sync_frequency= $($SyncHours)
+  sync_active_users= $(if("Active Users" -in $SyncObjects){"true"}else{"false"})
+  sync_distribution_groups= $(if("Distribution Groups" -in $SyncObjects){"true"}else{"false"})
+  sync_security_groups= $(if("Security Groups" -in $SyncObjects){"true"}else{"false"})
+  add_users= $(if($AddUsers){"true"}else{"false"})
+  update_users= $(if($UpdateUsers){"true"}else{"false"})
+  remove_deleted_users= $(if($RemoveDeletedUsers){"true"}else{"false"})
+  add_groups= $(if($AddGroups){"true"}else{"false"})
+  update_groups= $(if($UpdateGroups){"true"}else{"false"})
+  remove_deleted_groups= $(if($RemoveDeletedGroups){"true"}else{"false"})
 }
-"@
+
+$jsonBody = $Body | ConvertTo-Json
+
 
 if(!($PPheaders)){
 
@@ -48,7 +49,7 @@ if(!($PPheaders)){
 
 
 try{
-Invoke-RestMethod -Uri "$PPURI/$Domain/settings/azure" -Headers $Headers -Method Put -Body $Body
+Invoke-RestMethod -Uri "$PPURI/$Domain/settings/azure" -Headers $PPheaders -Method Put -Body $jsonBody -ContentType 'application/json'
 }Catch{
   Write-Output "$_"
 }

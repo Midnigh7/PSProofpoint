@@ -11,7 +11,6 @@ This is a PowerShell wrapper for the [Proofpoint API](https://us3.proofpointesse
 
 </div>
 
-
 <p align="center">
     <a href="PSProofpoint_functions.md">List of Functions</a> •
     <a href="https://github.com/Midnigh7/PSProofpoint/tree/master/Examples">Examples</a> •
@@ -27,5 +26,3 @@ This module makes it easy to leverage PowerShell to automate tasks in Proofpoint
 ```
 Install-Module 'PSProofpoint'
 ```
-
-

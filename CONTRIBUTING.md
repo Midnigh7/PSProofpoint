@@ -64,7 +64,6 @@ Provide more context by answering these questions:
 -   **Did the problem start happening recently** (e.g. after updating to a new version of Manage) or was this always a problem?
 -   **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
 
-
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion :pencil: and find related suggestions :mag_right:.
@@ -124,7 +123,5 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 -   Refer to the [unofficial guide](https://github.com/PoshCode/PowerShellPracticeAndStyle).
 
 ### Documentation Style Guide
-
 -   Use [Markdown](https://daringfireball.net/projects/markdown).
 -   Documentation is built with platyPS from the markdown.
-
