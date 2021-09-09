@@ -9,18 +9,9 @@ Function Set-ProofpointOrg{
   $Body = @{
    }  
   
-
-$OrgStatus = (Get-ProofpointOrg -domain $Domain).is_active
-
-if($OrgStatus -eq "true"){
-
-$Body =+ @{is_active = "false"}
-
-}else{
-    $Body =+ @{is_active = "true"}
-}
-
-
+   switch ($PSBoundParameters.keys){
+    "Active" {$Body += @{is_active = "$($PSBoundParameters["AttachmentDefense"])"}}
+   }
 
   $jsonBody = $Body | ConvertTo-Json
   

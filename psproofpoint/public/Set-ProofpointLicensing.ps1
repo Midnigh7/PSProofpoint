@@ -13,37 +13,12 @@ Function Set-ProofpointLicensing{
 
   }  
   
-if($LicenseCount){
-$Body =+ @{license_count = "$($LicenseCount)"}
-}
-if($LicensePackage){
-    $Body =+ @{package = "$($LicensePackage)"}
-    }
-
-
-if($Trial){
-
-        $TrialStatus = (Get-ProofpointLicensing -Domain $Domain).is_on_trial
-
-        If($TrialStatus -eq "false"){
-    $Body =+ @{is_on_trial = "true"}
-    }else{
-        $Body =+ @{is_on_trial = "false"} 
-    }
-}
-
-if($BeginnerPlus){
-
-    $BeginnerStatus = (Get-ProofpointLicensing -Domain $Domain).is_beginner_plus
-    if($BeginnerStatus -eq "false"){
-    $Body =+ @{is_beginner_plus = "true"}
-    }else{
-        $Body =+ @{is_beginner_plus = "false"}
-    }
-
-    }
-
-
+  switch ($PSBoundParameters.keys){
+    "LicenseCount" {$Body += @{license_count = "$($PSBoundParameters["AttachmentDefense"])"}}
+    "LicensePackage" {$Body += @{package= "$($PSBoundParameters["LicensePackage"])"}}
+    "Trial" {$Body += @{is_on_trial = "$($PSBoundParameters["Trial"])"}}
+    "BeginnerPlus" {$Body += @{is_beginner_plus = "$($PSBoundParameters["BeginnerPlus"])"}}
+  }
 
   $jsonBody = $Body | ConvertTo-Json
   

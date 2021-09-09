@@ -8,26 +8,38 @@ Function Set-ProofpointFeatures{
         [switch]$Encryption,
         [Switch]$SocialMedia,
         [switch]$OutboundRelay,
-        [int]$InstantReplay = 30,
+        [string]$InstantReplay,
         [switch]$EmailArchive,
         [switch]$URLDefense,
         [switch]$Disclaimers,
-        [switch]$SMTPDiscovery
+        [switch]$SMTPDiscovery,
+        [switch]$test
         )
   
-  $Body = @{
-    attachment_defense = "$(if($AttachmentDefense){"true"}else{"false"})"
-    dlp = "$(if($DLP){"true"}else{"false"})"
-    email_encryption = "$(if($Encryption){"true"}else{"false"})"
-    social_media_account_protection = "$(if($SocialMedia){"true"}else{"false"})"
-    outbound_relaying = "$(if($OutboundRelay){"true"}else{"false"})"
-    instant_replay = "$($InstantReplay)"
-    email_archive = "$(if($EmailArchive){"true"}else{"false"})"
-    url_defense = "$(if($URLDefense){"true"}else{"false"})"
-    disclaimers = "$(if($Disclaimers){"true"}else{"false"})"
-    smtp_discovery = "$(if($SMTPDiscovery){"true"}else{"false"})"
-  }  
+$PSBoundParameters | Out-Null
+
+$Body = [ordered]@{
   
+}  
+
+switch ($PSBoundParameters.keys){
+
+  "AttachmentDefense" {$Body += @{attachment_defense = "$($PSBoundParameters["AttachmentDefense"])"}}
+  "DLP" {$Body += @{dlp = "$($PSBoundParameters["DLP"])"}}
+  "Encryption" {$Body += @{email_encryption = "$($PSBoundParameters["Encryption"])"}}
+  "SocialMedia" {$Body += @{social_media_account_protection = "$($PSBoundParameters["SocialMedia"])"}}
+  "OutboundRelay" {$Body += @{outbound_relaying = "$($PSBoundParameters["OutboundRelay"])"}}
+  "InstantReplay" {$Body += @{instant_replay = "$($PSBoundParameters["InstantReplay"])"}}
+  "EmailArchive" {$Body += @{email_archive = "$($PSBoundParameters["EmailArchive"])"}}
+  "URLDefense" {$Body += @{url_defense = "$($PSBoundParameters["URLDefense"])"}}
+  "Disclaimers" {$Body += @{disclaimers = "$($PSBoundParameters["Disclaimers"])"}}
+  "SMTPDiscovery" {$Body += @{smtp_discovery = "$($PSBoundParameters["SMTPDiscovery"])"}}
+
+}
+
+
+
+
   $jsonBody = $Body | ConvertTo-Json
   
   
@@ -37,13 +49,12 @@ Function Set-ProofpointFeatures{
    
   }
   
-  
-  
+
   
   try{
   Invoke-RestMethod -Uri "$PPURI/orgs/$Domain/features" -Headers $PPheaders -Method put -Body $jsonBody -ContentType 'application/json'
   }Catch{
     Write-Output "$_"
   }
-  
+      
   }

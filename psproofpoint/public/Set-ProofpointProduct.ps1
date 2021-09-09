@@ -15,37 +15,13 @@ Function Set-ProofpointProduct{
     variant= "$($Variant)"
   }  
   
+  switch ($PSBoundParameters.keys){
 
-  if($Trial){
-    $TrialStatus = (Get-ProofpointProduct -Domain $Domain -Product $Product).is_on_trial
-
-    If($TrialStatus -eq "false"){
-$Body =+ @{is_on_trial = "true"}
-}else{
-    $Body =+ @{is_on_trial = "false"} 
-}
-}
-
-
-if($AutoRenew){
-    $AutoRenewStatus = (Get-ProofpointProduct -Domain $Domain -Product $Product).auto_renew
-
-    If($AutoRenewStatus -eq "false"){
-$Body =+ @{is_on_trial = "true"}
-}else{
-    $Body =+ @{is_on_trial = "false"} 
-}
-}
-
-
-If($ExtendTrial){
-    $Body =+ @{is_trial_extended = "true"}
-
-}
-
-
-
-
+    "Variant" {$Body += @{variant = "$($PSBoundParameters["Variant"])"}}
+    "AutoRenew" {$Body += @{auto_renew = "$($PSBoundParameters["AutoRenew"])"}}
+    "Trial" {$Body += @{is_on_trial = "$($PSBoundParameters["Trial"])"}}
+    "ExtendTrial" {$Body += @{is_trial_extended = "$($PSBoundParameters["ExtendTrial"])"}}
+  }
 
 
   $jsonBody = $Body | ConvertTo-Json

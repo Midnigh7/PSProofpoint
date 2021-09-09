@@ -12,7 +12,7 @@
 RootModule = 'PSProofpoint.psm1'
 
 # Version number of this module.
-ModuleVersion = '5.1.0'
+ModuleVersion = '5.1.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ Description = 'Proofpoint API Powershell Wrapper'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Connect-Proofpoint','Disconnect-Proofpoint','Get-ProofpointAzureSync','Get-ProofpointBilling','Get-ProofpointDKIM','Get-ProofpointDomain','Get-ProofpointDomainVerification','Get-ProofpointEndpoints','Get-ProofpointFeatures','Get-ProofpointLicensing','Get-ProofpointOrg','Get-ProofpointProducts','Get-ProofpointReport','Get-ProofpointStats','Get-ProofpointUser','New-ProofpointDomain','New-ProofpointOrg','Remove-ProofpointDomain','Set-ProofpointAzureSync','Set-ProofpointDomain','Set-ProofpointDomainVerification','Set-ProofpointFeatures','Set-ProofpointLicenseing')
+FunctionsToExport = @('Connect-Proofpoint','Disconnect-Proofpoint','Get-ProofpointAzureSync','Get-ProofpointBilling','Get-ProofpointDKIM','Get-ProofpointDomain','Get-ProofpointDomainVerification','Get-ProofpointEndpoints','Get-ProofpointFeatures','Get-ProofpointLicensing','Get-ProofpointOdinToken','Get-ProofpointOrg','Get-ProofpointProducts','Get-ProofpointReport','Get-ProofpointStats','Get-ProofpointUser','New-ProofpointDomain','New-ProofpointOrg','New-ProofpointProduct','Remove-ProofpointDomain','Remove-ProofpointOrg','Remove-ProofpointProduct','Set-ProofpointAzureSync','Set-ProofpointDomain','Set-ProofpointDomainVerification','Set-ProofpointFeatures','Set-ProofpointLicensing','Set-ProofpointOrg','Set-ProofpointPackage','Set-ProofpointProduct')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

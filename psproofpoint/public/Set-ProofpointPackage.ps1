@@ -10,12 +10,15 @@ Function Set-ProofpointPackage{
         )
   
   $Body = @{
-    package= "$($LicensePackage)"
-    is_activated = "$(if($Activate){"true"}else{"false"})"
-    is_eula_confirmed = "$(if($ConfirmEula){"true"}else{"false"})"
-    is_trial_extended = "$(if($ExtendTrial){"true"}else{"false"})"
   }  
-  
+ 
+  switch ($PSBoundParameters.keys){
+   "Activate" {$Body += @{is_activated = "$($PSBoundParameters["Activate"])"}}
+   "ConfirmEula" {$Body += @{is_eula_confirmed = "$($PSBoundParameters["ConfirmEula"])"}}
+   "ExtendTrial" {$Body += @{is_trial_extended = "$($PSBoundParameters["ExtendTrial"])"}}
+  }
+
+
   $jsonBody = $Body | ConvertTo-Json
   
   
