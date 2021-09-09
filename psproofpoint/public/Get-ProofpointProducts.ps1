@@ -5,6 +5,10 @@ Function Get-ProofpointProducts{
     $Product
   )
   
+  $URI = "$PPURI/orgs/$Domain/products"
+  if($Products){
+    $URI = $URI + "/$Product"
+  }
   
   if(!($PPheaders)){
   
@@ -14,7 +18,7 @@ Function Get-ProofpointProducts{
     try{
 
 
-      $Products = Invoke-RestMethod -Uri $PPURI/orgs/$Domain/products -Headers $PPheaders
+      $Products = Invoke-RestMethod -Uri $URI -Headers $PPheaders
      
       Return $Products
     }Catch{
