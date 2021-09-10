@@ -10,9 +10,8 @@ Function Set-ProofpointProduct{
         [switch]$Trial,
         [Switch]$ExtendTrial
          )
-  
+         $PSBoundParameters| Out-Null
   $Body = @{
-    variant= "$($Variant)"
   }  
   
   switch ($PSBoundParameters.keys){

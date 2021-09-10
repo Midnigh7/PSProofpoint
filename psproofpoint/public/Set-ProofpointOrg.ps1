@@ -5,7 +5,7 @@ Function Set-ProofpointOrg{
         [string]$Domain,
         [string]$Active
         )
-  
+        $PSBoundParameters| Out-Null
   $Body = @{
    }  
   

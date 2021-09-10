@@ -8,7 +8,7 @@ Function Set-ProofpointLicensing{
         [switch]$Trial,
         [switch]$BeginnerPlus
         )
-  
+        $PSBoundParameters| Out-Null
   $Body = @{
 
   }  

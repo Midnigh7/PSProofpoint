@@ -8,7 +8,7 @@ Function Set-ProofpointPackage{
         [Switch]$ConfirmEula,
         [string]$ExtendTrial
         )
-  
+        $PSBoundParameters| Out-Null
   $Body = @{
   }  
  
