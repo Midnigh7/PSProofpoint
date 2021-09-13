@@ -1,3 +1,35 @@
+
+<#
+.SYNOPSIS
+
+Sets Proofpoint Domain Settings.
+
+.DESCRIPTION
+
+Sets Domain settings for Proofpoint configured domain.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER TargetDomain
+Target Domain
+
+.PARAMETER IsRelay
+Enables Relay funcitons
+
+.PARAMETER IsActive
+Enables Domain
+
+.PARAMETER Destination
+Destination Address for relay
+.EXAMPLE
+
+PS> Set-ProofpointDomain -Domain microsoft.com -TargetDomain "Contoso.com" -Relay -Destination "Microsoftdomain.onmicrosoft.com
+
+#> 
+
+
+
 Function Set-ProofpointDomain{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
@@ -10,12 +42,21 @@ Function Set-ProofpointDomain{
         )
   
   $Body = @{
-    name= "$($TargetDomain)"
-    is_active = "$(if($IsActive){"true"}else{"false"})"
-    is_relay = "$(if($IsRelay){"true"}else{"false"})"
-    destination = "$(if($Destination){"true"}else{"false"})"
+
   }  
   
+
+
+  switch ($PSBoundParameters.keys){
+
+    "TargetDomain" {$Body += @{name = "$($PSBoundParameters["TargetDomain"])"}}
+    "IsActive" {$Body += @{is_active = "$($PSBoundParameters["IsActive"])"}}
+    "IsRelay" {$Body += @{is_relay = "$($PSBoundParameters["IsRelay"])"}}
+    "Destination" {$Body += @{destination = "$($PSBoundParameters["Destination"])"}}
+  
+  }
+
+
   $jsonBody = $Body | ConvertTo-Json
   
   

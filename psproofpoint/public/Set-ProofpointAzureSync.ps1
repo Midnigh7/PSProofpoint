@@ -1,3 +1,64 @@
+<#
+.SYNOPSIS
+
+Sets Proofpoint Azure AD Syncing.
+
+.DESCRIPTION
+
+Sets org Azure AD Syncing.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER AppID
+Azure AppID 
+
+.PARAMETER AppPW
+Azure Application Password 
+
+.PARAMETER DisableLogin
+Switch to disable login
+
+.PARAMETER UserRole
+User role to sync users, ("silent_User","end_user")
+
+.PARAMETER SyncHours
+Number of hours to sync
+
+.PARAMETER SyncActiveUsers
+Switch to Sync Active User Accounts
+
+.PARAMETER SyncDistGroups
+Switch to Sync Distribution Groups
+
+.PARAMETER SyncSecGroups
+Switch to Sync Security Groups
+
+.PARAMETER AddUser
+Switch to Add new users
+
+.PARAMETER UpdateUsers
+Switch to Update Users
+
+.PARAMETER RemoveDeletedUsers
+Switch to remove users that have been deleted
+
+.PARAMETER AddGroups
+Switch to Add new groups
+
+.PARAMETER UpdateGroups
+Switch to Update groups
+
+.PARAMETER RemoveDeletedGroups
+Switch to remove groups that have been deleted
+
+
+.EXAMPLE
+
+PS> Set-ProofpointAzureSync -Domain microsoft.com -AppID $AppID -AppPW $AppPassword -UserRole "end-user" -SyncActiveUsers -SyncDistGroups -SyncSecGroups -AddUsers -UpdateUsers -RemoveDeletedUsers -Addgroups -UpdateGroups -RemoveDeletedGroups
+
+#> 
+
 Function Set-ProofpointAzureSync{
   [CmdletBinding(SupportsShouldProcess = $true)]
 Param(
