@@ -9,6 +9,9 @@ This is a PowerShell wrapper for the [Proofpoint API](https://us3.proofpointesse
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e62784a71b754ebf8cef179a1bf1e077)](https://www.codacy.com/gh/Midnigh7/PSProofpoint/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Midnigh7/PSProofpoint&amp;utm_campaign=Badge_Grade)
 [![Gallery](https://img.shields.io/powershellgallery/v/PSProofpoint?label=PS%20Gallery&logo=powershell&logoColor=white)](https://www.powershellgallery.com/packages/PSProofpoint)
 
+<a href="https://www.powershellgallery.com/packages/PSPROOFPOINT"><img src="https://img.shields.io/powershellgallery/dt/PSPROOFPOINT?color=BRIGHTGREEN"></a>
+
+
 </div>
 
 <p align="center">
