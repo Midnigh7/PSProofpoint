@@ -1,3 +1,30 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Org Information.
+
+.DESCRIPTION
+
+Gets the Proofpoint Org Information for specified Domain and/or Children\.
+
+.PARAMETER Domain
+Specified Domain in org.
+
+.PARAMETER Children
+Flag to get child informationm
+
+
+.EXAMPLE
+
+PS> Get-ProofpointOrg -Domain microsoft.com
+
+.EXAMPLE
+
+PS> Get-ProofpointOrg -Domain microsoft.com -children
+
+#> 
+
+
 Function Get-ProofpointOrg{
     [CmdletBinding()]
   Param(

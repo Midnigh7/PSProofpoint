@@ -1,3 +1,56 @@
+
+<#
+.SYNOPSIS
+
+Sets Proofpoint Domain Features.
+.DESCRIPTION
+
+Sets Domain Verification settings for Proofpoint configured domain.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER AttachmentDefence
+Enables/Disables Attachment Defence
+Disable with -AttachmentDefence:$False
+
+.PARAMETER SocialMedia
+Enables/Disables Social Media Account Protection
+Disable with -SocialMedia:$False
+
+.PARAMETER Encryption
+Enables/Disables Email Encryption
+Disable with -Encryption:$False
+
+.PARAMETER DLP
+Enables/Disables  Data Loss Prevention (DLP)
+Disable with -DLP:$False
+
+.PARAMETER InstantReplay
+Number of daysfor Instant Replay, Defaults to 30.
+
+.PARAMETER EmailArchive
+Enables/Disables  Email Archiving
+Disable with -EmailArchive:$False
+
+.PARAMETER URLDefense
+Enables/Disables URL Defense
+Disable with -URLDefense:$False
+
+.PARAMETER Disclaimers
+Enables/Disables Email Disclaimers
+Disable with -Disclaimers:$False
+
+.PARAMETER SMTPDiscovery
+Enables/Disables SMTP Discovery
+Disable with SMTPDiscovery:$False
+
+.EXAMPLE
+
+PS> Set-ProofpointFeatures -Domain microsoft.com -DLP:$False -Encryption
+
+#> 
+
 Function Set-ProofpointFeatures{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
@@ -12,8 +65,7 @@ Function Set-ProofpointFeatures{
         [switch]$EmailArchive,
         [switch]$URLDefense,
         [switch]$Disclaimers,
-        [switch]$SMTPDiscovery,
-        [switch]$test
+        [switch]$SMTPDiscovery
         )
   
 $PSBoundParameters | Out-Null

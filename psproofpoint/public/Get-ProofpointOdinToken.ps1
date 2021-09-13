@@ -1,8 +1,37 @@
-Function Set-ProofpointOdinToken{
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Odin Token for User.
+
+.DESCRIPTION
+
+Gets the Proofpoint Odin token for specified User for impersionation.
+
+.PARAMETER Domain
+Specified Domain for endpoint.
+
+.PARAMETER UserEmail
+Specified Domain for endpoint.
+
+
+.EXAMPLE
+
+PS> Get-ProofpointOdinToken -Domain microsoft.com -UserEmail Bill.Gates@microsoft.com
+
+#>
+
+
+
+
+
+
+
+Function Get-ProofpointOdinToken{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
         [Parameter(Mandatory=$true)]
         [string]$Domain,
+        [Parameter(Mandatory=$true)]
         [string]$UserEmail
         )
   

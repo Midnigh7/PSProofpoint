@@ -1,3 +1,34 @@
+<#
+.SYNOPSIS
+
+Creates a Proofpoint Product.
+
+.DESCRIPTION
+
+Adds a new Proofpoint Product.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER Name
+Name for new product.
+
+.PARAMETER Variant
+Variant of new product.
+
+.PARAMETER AutoRenew
+Enables Auto Renew
+
+.PARAMETER Trial
+Enables Trial
+
+.EXAMPLE
+
+PS> New-ProofpointProduct -Domain microsoft.com -Name "Email_Security" -Variant Business -AutoRenew -Trial
+
+#> 
+
+
 Function New-ProofpointProduct{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

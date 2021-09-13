@@ -1,3 +1,27 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Domain Licensing.
+
+.DESCRIPTION
+
+Gets the Proofpoint Licensing for specified domain.
+
+.PARAMETER Domain
+Specified Domain for endpoint.
+
+.EXAMPLE
+
+PS> Get-ProofpointLicensing -Domain microsoft.com
+
+#>
+
+
+
+
+
+
+
 Function Get-ProofpointLicensing{
     [CmdletBinding()]
   Param(

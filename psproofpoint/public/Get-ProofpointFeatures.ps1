@@ -1,3 +1,25 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Domain Features.
+
+.DESCRIPTION
+
+Gets the Proofpoint Features for specified domain.
+
+.PARAMETER Domain
+Specified Domain for endpoint.
+
+.EXAMPLE
+
+PS> Get-ProofpointFeatures -Domain microsoft.com
+
+#>
+
+
+
+
+
 Function Get-ProofpointFeatures{
     [CmdletBinding()]
   Param(

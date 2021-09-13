@@ -1,3 +1,37 @@
+
+<#
+.SYNOPSIS
+
+Sets Proofpoint Domain Features.
+.DESCRIPTION
+
+Sets Domain Verification settings for Proofpoint configured domain.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER LicenseCount
+Number of licese seats
+
+.PARAMETER LicensePackage
+License Package, ("Beginner", "Business", "Advanced", "Professional")
+
+.PARAMETER Trial
+Enables/Disables Trial
+Disable with -Trial:$False
+
+.PARAMETER BeginnerPlus
+Enables/Disables Beginner Plus
+Disable with -BeginnerPlus:$False
+
+.EXAMPLE
+
+PS> Set-ProofpointLicense -Domain microsoft.com -LicenseCount 10 -LicensePackage Business -Trial:$False
+
+#> 
+
+
+
 Function Set-ProofpointLicensing{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

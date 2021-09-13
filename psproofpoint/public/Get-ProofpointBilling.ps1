@@ -1,3 +1,31 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Billing Settings.
+
+.DESCRIPTION
+
+Gets the Proofpoint Billing Settings for Domains and Child Companies.
+
+.PARAMETER Domain
+Target Domain 
+
+.PARAMETER Children
+Gets Child objects
+
+.EXAMPLE
+
+PS> Get-ProofpointBilling -Domain microsoft.com
+
+
+.EXAMPLE
+
+PS> Get-ProofpointBilling -Domain microsoft.com -Children
+
+#>
+
+
+
 Function Get-ProofpointBilling{
     [CmdletBinding()]
   Param(

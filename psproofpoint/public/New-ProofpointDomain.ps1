@@ -1,3 +1,39 @@
+<#
+.SYNOPSIS
+
+Created a Proofpoint Domain for org.
+
+.DESCRIPTION
+
+Adds a new domain to the Proofpoint org.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER TargetDomain
+Get Specific User
+
+.PARAMETER Destination
+Sets relay destination
+
+.PARAMETER IsRelay
+Enables domain to relay
+
+.PARAMETER IsActive
+Enables Domain
+
+.EXAMPLE
+
+PS> New-ProofpointDomain -Domain microsoft.com -TargetDomain Contoso.com -IsRelay -Destination MicrosoftDomain.onmicrosoft.com
+
+#> 
+
+
+
+
+
+
+
 Function New-ProofpointDomain{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

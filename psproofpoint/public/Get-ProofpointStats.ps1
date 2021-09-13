@@ -1,3 +1,33 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Stats for doamin.
+
+.DESCRIPTION
+
+Gets the Proofpoint Domain Stats for specified Domain and/or children.
+
+.PARAMETER Domain
+Specified Domain in org.
+
+.PARAMETER Children
+Flag to get child domain information
+
+
+.EXAMPLE
+
+PS> Get-ProofpointStats-Domain microsoft.com 
+
+.EXAMPLE
+
+PS> Get-ProofpointStats-Domain microsoft.com -Children
+#> 
+
+
+
+
+
+
 Function Get-ProofpointStats{
     [CmdletBinding()]
   Param(

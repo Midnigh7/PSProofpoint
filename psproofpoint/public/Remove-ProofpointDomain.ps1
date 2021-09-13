@@ -1,3 +1,25 @@
+<#
+.SYNOPSIS
+
+Removes a Proofpoint Domain.
+
+.DESCRIPTION
+
+Removes a Proofpoint Domain.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER TargetDomain
+Domain to remove
+
+
+.EXAMPLE
+
+PS> Remove-ProofpointDomain -Domain microsoft.com -TargetDomain Contoso.com
+
+#> 
+
 Function Remove-ProofpointDomain{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

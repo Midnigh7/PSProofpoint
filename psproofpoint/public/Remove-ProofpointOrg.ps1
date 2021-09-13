@@ -1,3 +1,22 @@
+<#
+.SYNOPSIS
+
+Removes a Proofpoint Org.
+
+.DESCRIPTION
+
+Removes a Proofpoint Org.
+
+.PARAMETER Domain
+Any Domain in org.
+
+
+.EXAMPLE
+
+PS> Remove-ProofpointOrg -Domain microsoft.com
+
+#> 
+
 Function Remove-ProofpointOrg{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

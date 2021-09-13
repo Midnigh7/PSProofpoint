@@ -1,3 +1,35 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Report for doamin.
+
+.DESCRIPTION
+
+Gets the Proofpoint Domain Report for specified Domain.
+
+.PARAMETER Domain
+Specified Domain in org.
+
+.PARAMETER Period
+Daily/Weekly/Monthly
+
+.PARAMETER Direction
+Can scope to Inbound or Outbound
+
+.EXAMPLE
+
+PS> Get-ProofpointReport -Domain microsoft.com -Period Weekly
+
+.EXAMPLE
+
+PS> Get-ProofpointReport -Domain microsoft.com -Period Weekly -Direction Inbound
+
+#> 
+
+
+
+
+
 Function Get-ProofpointReport{
     [CmdletBinding()]
   Param(

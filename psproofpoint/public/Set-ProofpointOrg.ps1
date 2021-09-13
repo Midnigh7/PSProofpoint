@@ -1,3 +1,26 @@
+
+<#
+.SYNOPSIS
+
+Sets Proofpoint Org Options.
+.DESCRIPTION
+
+Sets Org Options
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER Active
+Disables/Enables Org
+Deactivate with -Active:$false
+
+
+.EXAMPLE
+
+PS> Set-ProofpointOrg -Domain microsoft.com -Active:$false
+
+#> 
+
 Function Set-ProofpointOrg{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
@@ -10,7 +33,7 @@ Function Set-ProofpointOrg{
    }  
   
    switch ($PSBoundParameters.keys){
-    "Active" {$Body += @{is_active = "$($PSBoundParameters["AttachmentDefense"])"}}
+    "Active" {$Body += @{is_active = "$($PSBoundParameters["Active"])"}}
    }
 
   $jsonBody = $Body | ConvertTo-Json

@@ -1,3 +1,27 @@
+<#
+.SYNOPSIS
+
+Gets the Proofpoint Domain Verification Settings.
+
+.DESCRIPTION
+
+Gets the Proofpoint Domain Verification Settings.
+
+.PARAMETER Domain
+Any domain in org.
+
+.PARAMETER TargetDomain
+Target domain
+
+
+.EXAMPLE
+
+PS> Get-ProofpointDomainVerification -Domain microsoft.com -targetdomain contoso.com
+
+#>
+
+
+
 Function Get-ProofpointDomainVerification{
     [CmdletBinding()]
   Param(

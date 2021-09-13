@@ -1,3 +1,68 @@
+<#
+.SYNOPSIS
+
+Creates a Proofpoint org.
+
+.DESCRIPTION
+
+Adds a new Proofpoint org.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER PrimaryDomain
+Primary domain for new org.
+
+.PARAMETER Name
+Name of new org.
+
+.PARAMETER UserLicense
+Number of user licenses.
+
+.PARAMETER LicensePackage
+License package to assign, ("Beginner", "Business", "Advanced", "Professional").
+
+.PARAMETER Type
+Type of new org, defaults to Organization, ("oem_partner","strategic_partner","channel","organization") 
+
+.PARAMETER Type
+Switch Enables trial.
+
+.PARAMETER URL
+Website for org
+https://www.microsoft.com
+
+.PARAMETER Address
+Street Address for org
+
+.PARAMETER Postcode
+Postcode for org.
+
+.PARAMETER State
+State for org.
+https://us3.proofpointessentials.com/api/v1/docs/index.php#valid_values
+
+.PARAMETER Country
+Country for org.
+https://us3.proofpointessentials.com/api/v1/docs/index.php#valid_values
+
+.PARAMETER Phone
+Phone number for org
+555-555-5555
+
+.PARAMETER AdminEmail
+Email address for Org admin user. This will have the organization admin role.
+
+.PARAMETER TemplateID
+ID of template to apply to new org.
+
+.EXAMPLE
+
+PS> New-ProofpointOrg -Domain microsoft.com -Primary Github.com -Name "Github" -UserLicense 10 -LicensePackage "Advanced" -AdminEmail "OrgAdmin@github.com"
+
+#> 
+
+
 Function New-ProofpointOrg{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

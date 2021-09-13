@@ -1,3 +1,28 @@
+<#
+.SYNOPSIS
+
+Connects to the Proofpoint API Endpoint specified in $Region variable.
+
+.DESCRIPTION
+
+Connects to the Proofpoint API Endpoint specified in $Region variable.
+
+
+.PARAMETER Region
+Specifies the region to connect to "us1","us2","us3","us4","us5","eu1"
+
+.PARAMETER Credential
+Specifies the credentials used.
+
+
+.EXAMPLE
+
+PS> Connect-Proofpoint -Region US3 -Credential $ProofpointCred
+
+#>
+
+
+
 Function Connect-Proofpoint{
     [CmdletBinding()]
 param(

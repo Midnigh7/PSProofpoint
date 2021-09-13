@@ -1,3 +1,26 @@
+<#
+.SYNOPSIS
+
+Removes a Proofpoint Product.
+
+.DESCRIPTION
+
+Removes a Proofpoint Product from org.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER Product
+Product to remove
+
+
+.EXAMPLE
+
+PS> Remove-ProofpointProduct -Domain microsoft.com -Product "Email_Security"
+
+#> 
+
+
 Function Remove-ProofpointProduct{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(

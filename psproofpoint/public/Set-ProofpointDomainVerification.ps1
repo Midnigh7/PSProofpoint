@@ -1,3 +1,28 @@
+
+<#
+.SYNOPSIS
+
+Sets Proofpoint Domain Verification Settings.
+
+.DESCRIPTION
+
+Sets Domain Verification settings for Proofpoint configured domain.
+
+.PARAMETER Domain
+Any Domain in org.
+
+.PARAMETER TargetDomain
+Target Domain
+
+.PARAMETER Method
+Sets method of verification, ("TXT", "META")
+
+.EXAMPLE
+
+PS> Set-ProofpointDomainVerification -Domain microsoft.com -TargetDomain "Contoso.com" -Method TXT
+
+#> 
+
 Function Set-ProofpointDomainVerification{
     [CmdletBinding(SupportsShouldProcess = $true)]
   Param(
